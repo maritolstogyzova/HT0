@@ -45,15 +45,26 @@ public class Room {
 
     public void describeRoom() {
         System.out.println(" " + name);
-        System.out.print("  Illuminance = " + illumination + " (" + windows + " windows of 700 LX, lamps: ");
-        for (Illuminance lamp : lamps) {
-            System.out.println(lamp.getIllumination() + " LX;");
+        System.out.print("  Illuminance = " + illumination + " (" + windows + " windows of 700 LX");
+        if (!lamps.isEmpty()) {
+            System.out.println(", lamps: ");
+            for (Illuminance lamp : lamps) {
+                System.out.print(lamp.getIllumination() + " LX;");
+            }
+        }
+        else {
+            System.out.println();
         }
         System.out.println("  Space = " + space + " m^2 (occupied " + spaceUsage + " m^2, free " + (space - spaceUsage) +
                 " m^2 or " + (((space - spaceUsage) / space) * 100) + "% of space;");
-        System.out.println("  Furniture:");
-        for (SpaceUsage furniture : furnitureList) {
-            furniture.describeFurniture();
+        if (!furnitureList.isEmpty()) {
+            System.out.println("  Furniture:");
+            for (SpaceUsage furniture : furnitureList) {
+                furniture.describeFurniture();
+            }
+        }
+        else {
+            System.out.println("  No furniture");
         }
     }
 

@@ -15,6 +15,7 @@ public class Furniture implements SpaceUsage {
     }
 
     public void describeFurniture(){
+        System.out.println(name);
         if (minSpace != 0) {
             System.out.println("   " + name + "(space from " + minSpace + " to " + space + " m^2)");
         }
